@@ -77,10 +77,12 @@
     _eaglLayer = (CAEAGLLayer*) self.layer;
     
     // CALayer 默认是透明的，必须将它设为不透明才能让其可见
-    //_eaglLayer.opaque = YES;
+    _eaglLayer.opaque = YES;
     
     // 设置描绘属性，在这里设置不维持渲染内容以及颜色格式为 RGBA8
-    _eaglLayer.drawableProperties = @{kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES], // 注意：如果要用 glReadPixels 的話，這邊要設成 YES
+    // 注意：如果要用 glReadPixels 的話，kEAGLDrawablePropertyRetainedBacking 要設成 YES
+    // 設成 NO 的話， render buffer 的內容在 presentRenderbuffer 之後就會被清空，你再執行 glReadPixel 也讀不到東西
+    _eaglLayer.drawableProperties = @{kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES], 
                                       kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
                                       };
 }
@@ -226,7 +228,7 @@
 {
     //After render to the FBO 
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferObject);
-    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+//    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     
     GLint width;
     GLint height;
@@ -235,11 +237,11 @@
 
     int pixelLength = width * height * 4;
     GLubyte* pixels = (GLubyte*) malloc(pixelLength);
-    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels); // 會讀 render buffer 裡的資料
     
     CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, pixels, pixelLength, NULL);
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGBitmapInfo bitmapInfo = kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast;
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaLast; // 含 alpha channel
     CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
     int bitsPerComponent = 8;
     int bitsPerPixel = 8 * 4;
