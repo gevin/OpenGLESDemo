@@ -24,7 +24,6 @@
 		B98A110B1E51513C00E6E179 /* pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A110A1E51513C00E6E179 /* pic.jpg */; };
 		B98A110D1E515C5900E6E179 /* flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A110C1E515C5900E6E179 /* flower.jpg */; };
 		B98A110F1E515E2D00E6E179 /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A110E1E515E2D00E6E179 /* wood.jpg */; };
-		EE1924BE22E422EB001ECB27 /* mypic02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE1924BD22E422EB001ECB27 /* mypic02.jpg */; };
 		EE6325FC22DAF78C009EAC1A /* DisplayImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6325FB22DAF78C009EAC1A /* DisplayImageController.m */; };
 		EEA0737E22E0A61500A3482B /* blurFrag.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EEA0737C22E0A61500A3482B /* blurFrag.glsl */; };
 		EEA0737F22E0A61500A3482B /* blurVert.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EEA0737D22E0A61500A3482B /* blurVert.glsl */; };
@@ -80,7 +79,6 @@
 		B98A110A1E51513C00E6E179 /* pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpg; sourceTree = "<group>"; };
 		B98A110C1E515C5900E6E179 /* flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower.jpg; sourceTree = "<group>"; };
 		B98A110E1E515E2D00E6E179 /* wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpg; sourceTree = "<group>"; };
-		EE1924BD22E422EB001ECB27 /* mypic02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mypic02.jpg; sourceTree = "<group>"; };
 		EE6325FA22DAF78C009EAC1A /* DisplayImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayImageController.h; sourceTree = "<group>"; };
 		EE6325FB22DAF78C009EAC1A /* DisplayImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayImageController.m; sourceTree = "<group>"; };
 		EEA0737C22E0A61500A3482B /* blurFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blurFrag.glsl; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				B98A10AF1E51405A00E6E179 /* Main.storyboard */,
 				B98A10B21E51405A00E6E179 /* Assets.xcassets */,
 				B98A10B41E51405A00E6E179 /* LaunchScreen.storyboard */,
-				EE1924BD22E422EB001ECB27 /* mypic02.jpg */,
 				B98A110E1E515E2D00E6E179 /* wood.jpg */,
 				B98A110A1E51513C00E6E179 /* pic.jpg */,
 				B98A110C1E515C5900E6E179 /* flower.jpg */,
@@ -366,7 +363,6 @@
 				B98A110B1E51513C00E6E179 /* pic.jpg in Resources */,
 				EEA0737F22E0A61500A3482B /* blurVert.glsl in Resources */,
 				B98A10B61E51405A00E6E179 /* LaunchScreen.storyboard in Resources */,
-				EE1924BE22E422EB001ECB27 /* mypic02.jpg in Resources */,
 				B98A10DF1E51408800E6E179 /* frag.glsl in Resources */,
 				B98A110D1E515C5900E6E179 /* flower.jpg in Resources */,
 				B98A10B31E51405A00E6E179 /* Assets.xcassets in Resources */,

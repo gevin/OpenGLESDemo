@@ -186,7 +186,7 @@
 
 - (void)setupTexure
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"mypic02" ofType:@"jpg"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"wood" ofType:@"jpg"];
     
     unsigned char *data;
     
@@ -202,7 +202,7 @@
 #ifdef BLUR_SHADER
     glUniform1f(uniform_width, _image_width );
     glUniform1f(uniform_height, _image_height );
-    glUniform1f(uniform_radius, 20.0); // 半徑幾pixel
+    glUniform1f(uniform_radius, 30.0); // 半徑幾pixel
     glUniform1f(uniform_quality, 10.0); // 半徑切幾等份
     glUniform1f(uniform_directions, 18.0); // 圓切幾等份
 #endif
