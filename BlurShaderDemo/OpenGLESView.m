@@ -27,8 +27,6 @@
     GLuint uniform_width; 
     GLuint uniform_height;
     GLuint uniform_radius;
-    GLuint uniform_quality;
-    GLuint uniform_directions;
     
     int _image_size;
     int _image_width;
@@ -144,8 +142,6 @@
     uniform_width = glGetUniformLocation(_program, "textureWidth");
     uniform_height = glGetUniformLocation(_program, "textureHeight");
     uniform_radius = glGetUniformLocation(_program, "radius");
-    uniform_quality = glGetUniformLocation(_program, "quality");
-    uniform_directions = glGetUniformLocation(_program, "directions");
 #endif
     
     glUseProgram(_program);
@@ -202,9 +198,7 @@
 #ifdef BLUR_SHADER
     glUniform1f(uniform_width, _image_width );
     glUniform1f(uniform_height, _image_height );
-    glUniform1f(uniform_radius, 30.0); // 半徑幾pixel
-    glUniform1f(uniform_quality, 10.0); // 半徑切幾等份
-    glUniform1f(uniform_directions, 18.0); // 圓切幾等份
+    glUniform1f(uniform_radius, 10.0); // 半徑幾pixel，會用一個 radius*2 + 1 的 box
 #endif
     
     if (data) {
