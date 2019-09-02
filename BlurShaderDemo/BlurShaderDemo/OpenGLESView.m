@@ -1,6 +1,6 @@
 //
 //  OpenGLESView.m
-//  OpenGLES01-环境搭建
+//  BlurShaderDemo
 //
 //  Created by GevinChen on 2017/2/9.
 //  Copyright © 2019年 GevinChen. All rights reserved.
@@ -41,7 +41,6 @@
 
 + (Class)layerClass
 {
-    // 只有 [CAEAGLLayer class] 类型的 layer 才支持在其上描绘 OpenGL 内容。
     return [CAEAGLLayer class];
 }
 
@@ -81,12 +80,8 @@
 {
     _eaglLayer = (CAEAGLLayer*) self.layer;
     
-    // CALayer 默认是透明的，必须将它设为不透明才能让其可见
     _eaglLayer.opaque = YES;
     
-    // 设置描绘属性，在这里设置不维持渲染内容以及颜色格式为 RGBA8
-    // 注意：如果要用 glReadPixels 的話，kEAGLDrawablePropertyRetainedBacking 要設成 YES
-    // 設成 NO 的話， render buffer 的內容在 presentRenderbuffer 之後就會被清空，你再執行 glReadPixel 也讀不到東西
     _eaglLayer.drawableProperties = @{kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES], 
                                       kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
                                       };
@@ -94,14 +89,12 @@
 
 - (void)setupContext
 {
-    // 设置OpenGLES的版本为2.0 当然还可以选择1.0和最新的3.0的版本，以后我们会讲到2.0与3.0的差异，目前为了兼容性选择2.0的版本
     _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     if (!_context) {
         NSLog(@"Failed to initialize OpenGLES 2.0 context");
         exit(1);
     }
     
-    // 将当前上下文设置为我们创建的上下文
     if (![EAGLContext setCurrentContext:_context]) {
         NSLog(@"Failed to set current OpenGL context");
         exit(1);
@@ -110,17 +103,12 @@
 
 - (void)setupFrameAndRenderBuffer
 {
-
-    // 建立一個 render buffer，將其作為 color buffer
     glGenRenderbuffers(1, &_colorRenderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-    // 为 color renderbuffer 分配存储空间
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
     
     glGenFramebuffers(1, &_frameBufferObject);
-    // 设置为当前 framebuffer
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBufferObject);
-    // 将 _colorRenderBuffer 装配到 GL_COLOR_ATTACHMENT0 这个装配点上
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
                               GL_RENDERBUFFER, _colorRenderBuffer);
 }
@@ -161,15 +149,14 @@
 //    };
     
     GLfloat vertices[] = {
-        0.5f,  0.5f, 0.0f, 1.0f, 0.0f,   // 右上
-        0.5f, -0.5f, 0.0f, 1.0f, 1.0f,   // 右下
-        -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,  // 左下
-        -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,  // 左下
-        -0.5f,  0.5f, 0.0f, 0.0f, 0.0f,  // 左上
-        0.5f,  0.5f, 0.0f, 1.0f, 0.0f,   // 右上
+        0.8f,  0.8f, 0.0f, 1.0f, 0.0f,   // 右上
+        0.8f, -0.8f, 0.0f, 1.0f, 1.0f,   // 右下
+        -0.8f, -0.8f, 0.0f, 0.0f, 1.0f,  // 左下
+        -0.8f, -0.8f, 0.0f, 0.0f, 1.0f,  // 左下
+        -0.8f,  0.8f, 0.0f, 0.0f, 0.0f,  // 左上
+        0.8f,  0.8f, 0.0f, 1.0f, 0.0f,   // 右上
     };
     
-    // 创建VBO
     _vbo = createVBO(GL_ARRAY_BUFFER, GL_STATIC_DRAW, sizeof(vertices), vertices);
     
     glEnableVertexAttribArray(glGetAttribLocation(_program, "position"));
@@ -182,17 +169,12 @@
 
 - (void)setupTexure
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"wood" ofType:@"jpg"];
-    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Grovont_Wyoming_US" ofType:@"jpg"];
     unsigned char *data;
-    
-    
-    // 加载纹理
     if (read_jpeg_file(path.UTF8String, &data, &_image_size, &_image_width, &_image_height) < 0) {
         printf("%s\n", "decode fail");
     }
-    
-    // 创建纹理
+
     _texture = createTexture2D(GL_RGB, _image_width, _image_height, data);
     
 #ifdef BLUR_SHADER
@@ -221,22 +203,15 @@
 {
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
-    //glLineWidth(2.0);
     
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
-    // 激活纹理
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _texture);
     glUniform1i(glGetUniformLocation(_program, "image"), 0);
     
     glDrawArrays(GL_TRIANGLES, 0, _vertCount);
     
-    // 索引数组
-    //unsigned int indices[] = {0,1,2,3,2,0};
-    //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indices);
-    
-    //将指定 renderbuffer 呈现在屏幕上，在这里我们指定的是前面已经绑定为当前 renderbuffer 的那个，在 renderbuffer 可以被呈现之前，必须调用renderbufferStorage:fromDrawable: 为之分配存储空间。
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
@@ -286,12 +261,6 @@
                                         NO,
                                         renderingIntent);
     
-    //----------------------
-    // #way 1 (not work)
-//    UIImage *image = [UIImage imageWithCGImage:imageRef];
-    
-    //----------------------
-    // #way 2 (work)
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, height), NO, 1.0);
     CGContextRef cgcontext = UIGraphicsGetCurrentContext();
     // UIKit coordinate system is upside down to GL/Quartz coordinate system

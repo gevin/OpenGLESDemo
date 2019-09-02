@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,33 +21,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Scr-cu-xBJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="372"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKv-DR-yu2">
+                                <rect key="frame" x="0.0" y="424" width="414" height="372"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St3-d5-prg">
-                                <rect key="frame" x="292" y="756" width="81" height="30"/>
+                                <rect key="frame" x="49" y="812" width="316" height="34"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.25021404110000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
                                 <state key="normal" title="Read Image"/>
                                 <connections>
                                     <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gX0-dn-1qU"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Scr-cu-xBJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="674"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kKv-DR-yu2">
-                                <rect key="frame" x="0.0" y="726" width="284" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="St3-d5-prg" firstAttribute="leading" secondItem="kKv-DR-yu2" secondAttribute="trailing" constant="8" id="NoK-NW-LeX"/>
+                            <constraint firstItem="St3-d5-prg" firstAttribute="top" secondItem="kKv-DR-yu2" secondAttribute="bottom" constant="16" id="62h-u0-1Kc"/>
+                            <constraint firstAttribute="trailing" secondItem="kKv-DR-yu2" secondAttribute="trailing" id="Mgq-up-Bi8"/>
                             <constraint firstItem="kKv-DR-yu2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RR6-bK-YA7"/>
+                            <constraint firstItem="Scr-cu-xBJ" firstAttribute="height" secondItem="kKv-DR-yu2" secondAttribute="height" id="Rns-Ro-aPs"/>
                             <constraint firstAttribute="trailing" secondItem="Scr-cu-xBJ" secondAttribute="trailing" id="Y1e-hA-Dsv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="St3-d5-prg" secondAttribute="bottom" constant="16" id="Zea-ht-ygb"/>
                             <constraint firstItem="Scr-cu-xBJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cUp-V8-PpN"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kKv-DR-yu2" secondAttribute="bottom" constant="8" id="chz-lZ-SwZ"/>
                             <constraint firstItem="Scr-cu-xBJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jUl-nf-xin"/>
                             <constraint firstItem="kKv-DR-yu2" firstAttribute="top" secondItem="Scr-cu-xBJ" secondAttribute="bottom" constant="8" id="jxF-m0-GaD"/>
-                            <constraint firstAttribute="trailing" secondItem="St3-d5-prg" secondAttribute="trailing" constant="41" id="mWW-LL-Irl"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="St3-d5-prg" secondAttribute="bottom" constant="76" id="x3A-S1-dMg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Scr-cu-xBJ" secondAttribute="bottom" constant="144" id="x7d-J7-Hpg"/>
+                            <constraint firstAttribute="trailing" secondItem="St3-d5-prg" secondAttribute="trailing" constant="49" id="lkw-Tb-LW5"/>
+                            <constraint firstItem="St3-d5-prg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="49" id="vKc-yj-kRb"/>
                         </constraints>
                     </view>
                     <connections>

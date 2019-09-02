@@ -21,10 +21,12 @@
 		B98A10E41E51409000E6E179 /* OpenGLESView.m in Sources */ = {isa = PBXBuildFile; fileRef = B98A10E31E51409000E6E179 /* OpenGLESView.m */; };
 		B98A11031E5146C100E6E179 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B98A10FD1E5146C100E6E179 /* libjpeg.a */; };
 		B98A11091E514E4600E6E179 /* JpegUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = B98A11071E514E4600E6E179 /* JpegUtil.c */; };
-		B98A110B1E51513C00E6E179 /* pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A110A1E51513C00E6E179 /* pic.jpg */; };
-		B98A110D1E515C5900E6E179 /* flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A110C1E515C5900E6E179 /* flower.jpg */; };
-		B98A110F1E515E2D00E6E179 /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B98A110E1E515E2D00E6E179 /* wood.jpg */; };
 		EE6325FC22DAF78C009EAC1A /* DisplayImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE6325FB22DAF78C009EAC1A /* DisplayImageController.m */; };
+		EE7FA656231DA413005919A2 /* phonewall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE7FA654231DA412005919A2 /* phonewall.jpg */; };
+		EE7FA657231DA413005919A2 /* landscape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE7FA655231DA412005919A2 /* landscape.jpg */; };
+		EE7FA65B231DA6B3005919A2 /* balloon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE7FA658231DA6B3005919A2 /* balloon.jpg */; };
+		EE7FA65C231DA6B3005919A2 /* Grovont_Wyoming_US.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE7FA659231DA6B3005919A2 /* Grovont_Wyoming_US.jpg */; };
+		EE7FA65D231DA6B3005919A2 /* library.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE7FA65A231DA6B3005919A2 /* library.jpg */; };
 		EEA0737E22E0A61500A3482B /* blurFrag.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EEA0737C22E0A61500A3482B /* blurFrag.glsl */; };
 		EEA0737F22E0A61500A3482B /* blurVert.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EEA0737D22E0A61500A3482B /* blurVert.glsl */; };
 /* End PBXBuildFile section */
@@ -76,11 +78,13 @@
 		B98A10FD1E5146C100E6E179 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjpeg.a; sourceTree = "<group>"; };
 		B98A11071E514E4600E6E179 /* JpegUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = JpegUtil.c; sourceTree = "<group>"; };
 		B98A11081E514E4600E6E179 /* JpegUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JpegUtil.h; sourceTree = "<group>"; };
-		B98A110A1E51513C00E6E179 /* pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic.jpg; sourceTree = "<group>"; };
-		B98A110C1E515C5900E6E179 /* flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower.jpg; sourceTree = "<group>"; };
-		B98A110E1E515E2D00E6E179 /* wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpg; sourceTree = "<group>"; };
 		EE6325FA22DAF78C009EAC1A /* DisplayImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayImageController.h; sourceTree = "<group>"; };
 		EE6325FB22DAF78C009EAC1A /* DisplayImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayImageController.m; sourceTree = "<group>"; };
+		EE7FA654231DA412005919A2 /* phonewall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phonewall.jpg; sourceTree = "<group>"; };
+		EE7FA655231DA412005919A2 /* landscape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = landscape.jpg; sourceTree = "<group>"; };
+		EE7FA658231DA6B3005919A2 /* balloon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = balloon.jpg; sourceTree = "<group>"; };
+		EE7FA659231DA6B3005919A2 /* Grovont_Wyoming_US.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Grovont_Wyoming_US.jpg; sourceTree = "<group>"; };
+		EE7FA65A231DA6B3005919A2 /* library.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = library.jpg; sourceTree = "<group>"; };
 		EEA0737C22E0A61500A3482B /* blurFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blurFrag.glsl; sourceTree = "<group>"; };
 		EEA0737D22E0A61500A3482B /* blurVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blurVert.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,10 +151,12 @@
 				B98A10AF1E51405A00E6E179 /* Main.storyboard */,
 				B98A10B21E51405A00E6E179 /* Assets.xcassets */,
 				B98A10B41E51405A00E6E179 /* LaunchScreen.storyboard */,
-				B98A110E1E515E2D00E6E179 /* wood.jpg */,
-				B98A110A1E51513C00E6E179 /* pic.jpg */,
-				B98A110C1E515C5900E6E179 /* flower.jpg */,
 				B98A10B71E51405A00E6E179 /* Info.plist */,
+				EE7FA655231DA412005919A2 /* landscape.jpg */,
+				EE7FA654231DA412005919A2 /* phonewall.jpg */,
+				EE7FA658231DA6B3005919A2 /* balloon.jpg */,
+				EE7FA659231DA6B3005919A2 /* Grovont_Wyoming_US.jpg */,
+				EE7FA65A231DA6B3005919A2 /* library.jpg */,
 				B98A10A61E51405A00E6E179 /* Supporting Files */,
 			);
 			path = BlurShaderDemo;
@@ -359,15 +365,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B98A110F1E515E2D00E6E179 /* wood.jpg in Resources */,
-				B98A110B1E51513C00E6E179 /* pic.jpg in Resources */,
 				EEA0737F22E0A61500A3482B /* blurVert.glsl in Resources */,
+				EE7FA65B231DA6B3005919A2 /* balloon.jpg in Resources */,
 				B98A10B61E51405A00E6E179 /* LaunchScreen.storyboard in Resources */,
 				B98A10DF1E51408800E6E179 /* frag.glsl in Resources */,
-				B98A110D1E515C5900E6E179 /* flower.jpg in Resources */,
 				B98A10B31E51405A00E6E179 /* Assets.xcassets in Resources */,
 				B98A10E01E51408800E6E179 /* vert.glsl in Resources */,
 				B98A10B11E51405A00E6E179 /* Main.storyboard in Resources */,
+				EE7FA65D231DA6B3005919A2 /* library.jpg in Resources */,
+				EE7FA656231DA413005919A2 /* phonewall.jpg in Resources */,
+				EE7FA65C231DA6B3005919A2 /* Grovont_Wyoming_US.jpg in Resources */,
+				EE7FA657231DA413005919A2 /* landscape.jpg in Resources */,
 				EEA0737E22E0A61500A3482B /* blurFrag.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
