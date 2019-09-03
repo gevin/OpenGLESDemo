@@ -110,9 +110,9 @@ import QuartzCore
     // mark: - vertex array buffer
     
     private func setupVAO() {
-         
+        // 把圖片切成幾個格子
         let meshLayout = CGSize(width: 4, height: 40)
-        let vertices = self.genVerticesAndTexCoords(drawRect: CGRect(x: 40, y:200, width: _textureSize.width * CGFloat(0.4), height: _textureSize.height * CGFloat(0.4) ), meshLayout: meshLayout )
+        let vertices = self.genVerticesAndTexCoords(drawRect: CGRect(x: 80, y:630, width: _textureSize.width * CGFloat(0.4), height: _textureSize.height * CGFloat(0.4) ), meshLayout: meshLayout )
         let indicaties = self.genIndicaties(meshLayout: meshLayout)
         _indicateSize = indicaties.count
         
@@ -133,6 +133,7 @@ import QuartzCore
     
     // MARK: - vertices
     
+    // 產生 texture coordinate 座標陣列
     private func genTextureCoordinates(meshLayout: CGSize ) -> [GLfloat] {
         
         var texCoords: [GLfloat] = []
@@ -148,6 +149,7 @@ import QuartzCore
         return texCoords
     }
     
+    // 產生 draw rect 座標陣列
     private func genVertices( drawRect: CGRect, meshLayout: CGSize ) -> [GLfloat] {
         let viewSize = self.eaglLayer!.bounds.size
         let originX:GLfloat = GLfloat(-1.0 + (2.0 * (drawRect.origin.x/viewSize.width)) )
@@ -170,6 +172,7 @@ import QuartzCore
         return vertices
     }
     
+    // 產生 texture coordinate 和 draw rect 座標陣列
     private func genVerticesAndTexCoords( drawRect: CGRect, meshLayout: CGSize ) -> [GLfloat] {
         let viewSize = self.eaglLayer!.bounds.size
         let originX:GLfloat = GLfloat(-1.0 + (2.0 * (drawRect.origin.x/viewSize.width)) )
@@ -195,7 +198,7 @@ import QuartzCore
                 vertices.append( GLfloat(x) * meshTexWidth )
                 vertices.append( GLfloat(y) * meshTexHeight)
                 
-                print("\(vertices[vertices.count-4]), \(vertices[vertices.count-3]), \(vertices[vertices.count-2]), \(vertices[vertices.count-1])")
+                //print("\(vertices[vertices.count-4]), \(vertices[vertices.count-3]), \(vertices[vertices.count-2]), \(vertices[vertices.count-1])")
             }
         }
         
@@ -373,7 +376,6 @@ import QuartzCore
     @objc
     func renderTexture( ) {
         
-        print("render!")
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), _framebuffer)
         glBindVertexArray(_vao)
 
@@ -395,7 +397,7 @@ import QuartzCore
         glUniform1f(GLint(_program!.uniform("angle")), _angle)
         
         glViewport(0, 0, GLsizei(self.layer.bounds.size.width), GLsizei(self.layer.bounds.size.height) );
-        glClearColor(1.0, 1.0, 1.0, 1.0);
+        glClearColor(0.8, 0.8, 0.8, 1.0);
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT));
         
         glDrawElements(GLenum(GL_TRIANGLE_STRIP), GLsizei(_indicateSize), GLenum(GL_UNSIGNED_SHORT), nil)
