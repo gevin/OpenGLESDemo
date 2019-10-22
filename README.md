@@ -21,3 +21,10 @@
 簡單對 vertex data 做 x 的偏移
 
 ![](ImageWaveDistortion.gif)
+
+
+## 簡單的3D世界
+
+用手機的陀羅儀來控制3d世界的camera
+
+![](Simple3DWorld.gif)
